@@ -60,7 +60,7 @@ def main():
     # File uploaders and input fields
     uploaded_pdf = st.file_uploader("Upload PDF Brochure", type="pdf")
     uploaded_credentials = st.file_uploader("Upload Google Sheet Credentials JSON", type="json")
-    spreadsheet_name = st.text_input("Spreadsheet Name", value="Master_Curriculum")
+    spreadsheet_name = st.text_input("Spreadsheet Name", value="Master_Curriculums")
     worksheet_name = st.text_input("Worksheet Name", value="CyberSecurity")
 
     if st.button("Run Comparison"):
@@ -71,7 +71,7 @@ def main():
         with st.spinner("Processing..."):
             # Load credentials from uploaded JSON
             try:
-                credentials_info = json.load(uploaded_credentials)
+                credentials_info = st.secrets["google_sheets"]
                 credentials = service_account.Credentials.from_service_account_info(
                     credentials_info,
                     scopes=[
