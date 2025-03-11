@@ -162,8 +162,13 @@ def main():
     st.sidebar.write("""
     1. Create a `secrets.toml` file in the `.streamlit` directory with your OpenAI credentials.
     2. Ensure you have the correct credentials JSON for Google Sheets.
+    3. First Add the Curriculum to the master_curriculum sheet below.
     """)
-
+    st.page_link(
+    "https://docs.google.com/spreadsheets/d/1hf3UCRKxpSOSblxWVbW0dQhRoM5ZSFP3AG0Vz7iNkUE/edit?usp=sharing", 
+    label="Master_Curriculums", 
+    icon="📊"  # Excel sheet icon
+)
 
 if __name__ == "__main__":
     main()
