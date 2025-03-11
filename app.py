@@ -59,13 +59,12 @@ def main():
 
     # File uploaders and input fields
     uploaded_pdf = st.file_uploader("Upload PDF Brochure", type="pdf")
-    uploaded_credentials = st.file_uploader("Upload Google Sheet Credentials JSON", type="json")
     spreadsheet_name = st.text_input("Spreadsheet Name", value="Master_Curriculums")
     worksheet_name = st.text_input("Worksheet Name", value="CyberSecurity")
 
     if st.button("Run Comparison"):
-        if not (uploaded_pdf and uploaded_credentials and spreadsheet_name and worksheet_name):
-            st.error("Please provide all required inputs: PDF, credentials JSON, spreadsheet name, and worksheet name.")
+        if not (uploaded_pdf and spreadsheet_name and worksheet_name):
+            st.error("Please provide all required inputs: PDF, spreadsheet name, and worksheet name.")
             return
 
         with st.spinner("Processing..."):
